@@ -6,7 +6,6 @@ class Student < Person
     @classroom = Classroom.new(classroom)
   end
 
-
   def classroom=(classroom)
     @classroom = classroom
     classroom.students << self unless classroom.students.include?(self)
