@@ -65,7 +65,7 @@ class App
       puts 'The list is empty'
     else
       puts 'People list:'
-      people.each_with_index do |person, index|
+      people.each_with_index do |person, _index|
         puts "ID: #{person.id} | Name: #{person.name} | Age: #{person.age}" if person.is_a?(Teacher)
         puts "ID: #{person.id} | Name: #{person.name} | Age: #{person.age}" if person.is_a?(Student)
       end
