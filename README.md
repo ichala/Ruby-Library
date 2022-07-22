@@ -6,6 +6,21 @@
 - Git
 
 
+## Getting Started
+
+
+To get a local copy up and running follow these simple example steps.
+clone the repository using:
+
+```
+git clone https://github.com/ichala/Ruby-Library.git
+```
+run
+```
+ruby main.rb
+```
+
+
 ## Authors
 
 - GitHub: [@chala](https://github.com/ichala)
