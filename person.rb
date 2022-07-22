@@ -1,31 +1,32 @@
-require './nameable'
-require './capitalize_decorator'
-require './trimmer_decorator'
+require_relative 'nameable'
 
 class Person < Nameable
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :rentals
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  # rubocop:disable Style/ClassVars
+  @@people = []
+  # rubocop:enable Style/ClassVars
+
+  def initialize(age, name = 'unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @@people << self
     @rentals = []
   end
 
-  def can_use_services?
-    of_age? || @parent_permission
-  end
-
-  private
-
   def of_age?
-    age >= 18
+    @age >= 18
   end
 
-  public
+  private :of_age?
+
+  def can_use_servies?
+    @age >= 18 || @parent_permission
+  end
 
   def correct_name
     @name
@@ -36,10 +37,3 @@ class Person < Nameable
     @rentals << rental
   end
 end
-
-person = Person.new(22, 'maximilianus')
-puts person.correct_name
-capitalized_person = CapitalizeDecorator.new(person)
-puts capitalized_person.correct_name
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name
