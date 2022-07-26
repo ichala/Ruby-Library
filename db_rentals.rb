@@ -4,9 +4,7 @@ module RentalsPersistence
   def store_rentals(rentals)
     data = []
     file = './database/rentals.json'
-    if !(File.exist?(file) && File.read(file) != '')
-      File.write(file, '[]')
-    end
+    !(File.exist?(file) && File.read(file) != '') && File.write(file, '[]')
     return unless File.exist?(file)
 
     rentals.each do |rental|
@@ -18,9 +16,7 @@ module RentalsPersistence
   def load_rentals
     data = []
     file = './database/rentals.json'
-    if !(File.exist?(file) && File.read(file) != '')
-      File.write(file, '[]')
-    end
+    !(File.exist?(file) && File.read(file) != '') && File.write(file, '[]')
     return data unless File.exist?(file) && File.read(file) != ''
 
     JSON.parse(File.read(file)).each do |rental|
