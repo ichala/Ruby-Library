@@ -4,6 +4,9 @@ module BooksPersistence
   def store_books(books)
     data = []
     file = './database/books.json'
+    if !(File.exist?(file) && File.read(file) != '')
+      File.write(file, '[]')
+    end
     return unless File.exist?(file)
 
     books.each do |book|
@@ -15,6 +18,9 @@ module BooksPersistence
   def load_books
     data = []
     file = './database/books.json'
+    if !(File.exist?(file) && File.read(file) != '')
+      File.write(file, '[]')
+    end
     return data unless File.exist?(file) && File.read(file) != ''
 
     JSON.parse(File.read(file)).each do |book|

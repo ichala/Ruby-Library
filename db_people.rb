@@ -6,7 +6,12 @@ module PeoplePersistence
     students_data = []
     teachers_file = './database/teachers.json'
     students_file = './database/students.json'
-
+    if !(File.exist?(teachers_file) && File.read(teachers_file) != '')
+      File.write(teachers_file, '[]')
+    end
+    if !(File.exist?(students_file) && File.read(students_file) != '')
+      File.write(students_file, '[]')
+    end
     return unless File.exist?(teachers_file) && File.exist?(students_file)
 
     people.each do |person|
@@ -26,7 +31,12 @@ module PeoplePersistence
     data = []
     teachers_file = './database/teachers.json'
     students_file = './database/students.json'
-
+    if !(File.exist?(teachers_file) && File.read(teachers_file) != '')
+      File.write(teachers_file, '[]')
+    end
+    if !(File.exist?(students_file) && File.read(students_file) != '')
+      File.write(students_file, '[]')
+    end
     unless File.exist?(teachers_file) && File.exist?(students_file) &&
            File.read(teachers_file) != '' && File.read(students_file) != ''
       return data
