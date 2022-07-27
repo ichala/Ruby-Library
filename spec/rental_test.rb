@@ -7,7 +7,7 @@ require 'yaml'
 describe Rental do
   before :each do
     @book = Book.new('TEST', 'TEST')
-    @student = Student.new(13,23,'TEST')
+    @student = Student.new(13, 23, 'TEST')
     @rental = Rental.new '03.02.24', @book, @student
   end
 

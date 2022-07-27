@@ -4,7 +4,7 @@ require 'yaml'
 
 describe Person do
   before :each do
-    @person = Person.new(1,26,'TEST')
+    @person = Person.new(1, 26, 'TEST')
   end
 
   it 'age is correct ?' do

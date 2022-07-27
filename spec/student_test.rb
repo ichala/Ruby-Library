@@ -4,7 +4,7 @@ require 'yaml'
 
 describe Student do
   before :each do
-    @student = Student.new(1,26,'TEST','TEST')
+    @student = Student.new(1, 26, 'TEST', 'TEST')
   end
 
   it 'instance of student' do

@@ -4,7 +4,7 @@ require 'yaml'
 
 describe Teacher do
   before :each do
-    @teacher = Teacher.new(102,44,'Science','TEST')
+    @teacher = Teacher.new(102, 44, 'Science', 'TEST')
   end
 
   it 'instance of teacher' do
